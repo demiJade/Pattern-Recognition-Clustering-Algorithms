@@ -1,0 +1,123 @@
+<!-- Sy, Judy C.
+CS 129.18 - A -->
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pattern Recognition</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#knn" aria-controls="knn" role="tab" data-toggle="tab">KNN</a></li>
+    <li role="presentation"><a href="#nb" aria-controls="profile" role="tab" data-toggle="tab">Naive Bayes</a></li>
+    <li role="presentation"><a href="#kmeans" aria-controls="messages" role="tab" data-toggle="tab">KMeans</a></li>
+    <li role="presentation"><a href="#sp" aria-controls="settings" role="tab" data-toggle="tab">Single Perceptron</a></li>
+    <li role="presentation"><a href="#mp" aria-controls="settings" role="tab" data-toggle="tab">Multilayer Perceptron</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+ 	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="knn">
+			<div class="container">
+				<div class="row">
+					<label for="training-data">Input Training Set CSV File</label>
+					<input type="file" id="training-data">
+					<label for="validation-data">Input Validation Set CSV File</label>
+					<input type="file" id="validation-data">
+				</div>
+			
+				<div class="row" id="knn">
+					<h2>KNN</h2>
+					<div class="col-md-4">
+						<h3>Parameters</h3>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="knn-param">K=</label>
+							<div class="col-sm-10">
+								<input class="form-control" id="knn-param" type="text">
+							</div>
+						
+						</div>
+						
+						<button class="btn btn-default" type="button" id="knn-go">Go!</button>
+					</div>
+					<div class="col-md-4">
+						<h3>Results</h3>
+						<textarea class="form-control" id="knn-results" readonly rows="30"></textarea>
+					</div>
+					<div class="col-md-4">
+						<h3>Validation Data</h3>
+						<textarea class="form-control" id="k-nearest-neighbors" readonly rows="30">
+						</textarea>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="nb">...</div>
+    	<div role="tabpanel" class="tab-pane" id="kmeans">...</div>
+    	<div role="tabpanel" class="tab-pane" id="sp">
+
+    	</div>
+    	<div role="tabpanel" class="tab-pane" id="mp">
+    		<div class="container">
+    			<div class="row">
+    				<h2>Multilayer Perceptron</h2>
+    				<div class="col-md-6">
+    					
+    					<form class="form-horizontal">
+    						<div class="form-group">
+				    			<label class="col-md-3 control-label" for="passes">Passes per row</label>
+				    			<div class="col-md-5">
+				    				<input class="form-control" id="passes" type="text">
+				    			</div>
+			    			</div>
+			    			<div class="form-group">
+				    			<label class="col-md-3 control-label" for="bias">Bias</label>
+				    			<div class="col-md-5">
+				    				<input class="form-control" id="bias" type="text">
+				    			</div>
+			    			</div>
+			    			<div class="form-group">
+				    			<label class="col-md-3 control-label" for="wb">Wb</label>
+				    			<div class="col-md-5">
+				    				<input class="form-control" id="wb" type="text">
+				    			</div>
+			    			</div>
+			    			<div class="form-group">	
+			    				<label class="col-md-3 control-label" for="learningRate">Learning Rate	</label>
+			    				<div class="col-md-5">
+			    					<input class="form-control" type="text" id="learningRate">
+			    				</div>
+			    			</div>
+			    			<div class="form-group">
+				    			<label class="col-sm-3 control-label" for="topology">Topology</label>
+				    			<div class="col-md-5">
+				    				<input class="form-control" id="topology" type="text">
+				    			</div>
+				    			<button class="btn btn-default" type="button" id="create-topology">Create Topology</button>
+			    			</div>
+			    			<div id="weights">
+			    				
+			    			</div>
+    					</form>
+    				</div>
+    			</div>
+    		</div>	
+    	</div>
+	</div>
+
+</div>
+	
+			
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+</body>
+</html>
