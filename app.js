@@ -332,10 +332,20 @@ function doMLP(){
 				var newWeight = weights[k] - (learningRate * delta[k]);
 				weights[k] = newWeight;
 			}
+			var html = document.getElementById('mlp-results').value;
+			html += '\n'+ "Error is:" + totalerror + '\n';
+			document.getElementById('mlp-results').innerHTML = html;
 			console.log("Error is:" + totalerror);
+
 		}
 
 	}
+	var html = document.getElementById('mlp-results').value;
+	html += '\nFinal Set of Weights: \n';
+	for (var i = 0; i < weights.length; i++){
+		html += weights[i] + '\n';
+	}
+	document.getElementById('mlp-results').innerHTML = html;
 }
 
 function readMLPData(f){
