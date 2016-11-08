@@ -273,19 +273,12 @@ function doMLP(){
 							e2.push(e2Temp);
 						}
 						for (var m = 0; m < topology[k]; m++){
-							var e3Temp = buffer[buffer.length-2][l%topology[topology.length-1]];
+							var e3Temp = buffer[buffer.length-2][m%topology[topology.length-1]];
 							e3.push(e3Temp);
 						}
 						totalerror += error;
 						
-						console.log("E1:");
-						console.log(e1);
-						console.log("E2:");
-						console.log(e2);
-						console.log("E3:");
-						console.log(e3);
-						console.log("Weights:");
-						console.log(weights);
+
 					}
 				} else {
 					// var tempTotal
@@ -309,11 +302,25 @@ function doMLP(){
 						}
 					}
 					for (var l = 0; l < e4.length; l++){
-						var deltaTemp = e4[l] * e5[l] * MLPData[i][l%topology[k]];
+						var deltaTemp = e4[l] * e5[l] * MLPData[i][l%topology[k-1]];
 						delta.push(deltaTemp);
 					}
 					
 				}
+			// console.log("E1:");
+			// console.log(e1);
+			// console.log("E2:");
+			// console.log(e2);
+			// console.log("E3:");
+			// console.log(e3);
+			// console.log("Weights:");
+			// console.log(weights);
+			// console.log("Delta:");
+			// console.log(delta);
+			// console.log("E4:");
+			// console.log(e4);
+			// console.log("E5:");
+			// console.log(e5);
 			}
 			
 			for (var k = 0; k < e1.length; k++){
@@ -321,18 +328,13 @@ function doMLP(){
 				delta.push(deltaTemp);
 			}
 
-			console.log("Delta:");
-			console.log(delta);
-			console.log("E4:");
-			console.log(e4);
-			console.log("E5:");
-			console.log(e5);
 			for (var k = 0; k < delta.length; k++){
 				var newWeight = weights[k] - (learningRate * delta[k]);
 				weights[k] = newWeight;
 			}
 			console.log("Error is:" + totalerror);
 		}
+
 	}
 }
 
