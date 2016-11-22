@@ -259,6 +259,7 @@ function doMLP(){
 			output = buffer[buffer.length-1];
 			console.log("Output is");
 			console.log(output);
+			console.log(weights);
 			//start back propagation
 			totalerror = 0;
 			for (k = topology.length-1; k > 0; k--){
@@ -268,11 +269,11 @@ function doMLP(){
 						var error = 0.5 * (Math.pow(output[l]-MLPData[i][mlp_data_index],2));
 						var e1Temp = output[l]-MLPData[i][mlp_data_index];
 						var e2Temp = output[l] * (1 - output[l]);
-						for (var m = 0; m < topology[topology.length-1]; m++){
+						for (var m = 0; m < topology[topology.length-2]; m++){
 							e1.push(e1Temp);
 							e2.push(e2Temp);
 						}
-						for (var m = 0; m < topology[k]; m++){
+						for (var m = 0; m < topology[topology.length-2]; m++){
 							var e3Temp = buffer[buffer.length-2][m%topology[topology.length-1]];
 							e3.push(e3Temp);
 						}
@@ -288,8 +289,9 @@ function doMLP(){
 					for (var a = 0; a < topology[k]; a++){
 						for (var l = 0; l < topology[k-1]; l++){
 							var tempTotal = 0;
-							for (var m = 0; m < topology[k]; m++){
-								var tempIndex = m*topology[k]+a; //to make the jumping values
+							for (var m = 0; m < topology[k+1]; m++){
+								// var tempIndex = m*topology[k]; //to make the jumping values
+								var tempIndex = m*topology[k]+a;
 								var adjust = topology[k] * topology[k+1]; //to adjust index for weight
 								tempTotal += e1[tempIndex]*e2[tempIndex]*weights[weights.length-adjust+tempIndex];
 
