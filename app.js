@@ -274,7 +274,7 @@ function doMLP(){
 							e2.push(e2Temp);
 						}
 						for (var m = 0; m < topology[topology.length-2]; m++){
-							var e3Temp = buffer[buffer.length-2][m%topology[topology.length-1]];
+							var e3Temp = buffer[buffer.length-2][m%topology[topology.length-2]];
 							e3.push(e3Temp);
 						}
 						totalerror += error;
