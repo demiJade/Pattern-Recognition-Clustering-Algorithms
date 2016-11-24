@@ -1,7 +1,8 @@
 Sy, Judy C.
 CS 129.18 - A
 
-I have made a JS program that will do KNN for me.
+
+To use KNN:
 
 To use the program, follow these steps:
 1. Open index.html in a browser.
@@ -14,7 +15,18 @@ To use the program, follow these steps:
 8. The validation data text area will show the validation data points that were used and the list of their K nearest neighbors.
 9. Repeat steps 5-8 for other values of K.
 
-For K-means, the spreadsheet in the Midterms excel file will start iterating when "control" is a blank cell. 
-To configure the settings for iterations, click on "Files", go to "Options", select "Formulas", and check the "Enable Iterations". Set Max iterations to 1.
-To start over, type anything or "stop" in the blank yellow cell then delete it. 
-Press F9 to iterate.
+To use Multilayer perceptron:
+1. Open index.html in a browser.
+2. Select Multilayer Perceptron
+3. Input the number of passes per row
+4. Input the bias.
+5. Input the weight of the bias.
+6. Input the learning rate.
+7. Input the topology (e.g. 1,2,3).
+8. Click Create Topology.
+9. Input the weights. 
+10. Input the vector and output values in CSV format.
+11. Click GO!
+12. Errors for each pass and final set of weights will be displayed.
+
+
