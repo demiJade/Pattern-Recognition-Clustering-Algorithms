@@ -1,7 +1,3 @@
-Sy, Judy C.
-CS 129.18 - A
-
-
 To use KNN:
 
 To use the program, follow these steps:
