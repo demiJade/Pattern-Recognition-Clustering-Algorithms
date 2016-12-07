@@ -5,6 +5,7 @@
 var trainingData = [];
 var validationData = [];
 var knnParam = 0;
+
 function readValidationData(evt){
 	var f = evt.target.files[0];
 	readSingleFile(f, validationData);	
@@ -40,7 +41,31 @@ function readSingleFile(f, object){
 		}
 		var text = r.readAsText(f);
 	}
-};
+}
+
+function readWeights(f){
+	if (f) {
+		var r = new FileReader();
+		r.onload = function(e) {
+			var contents = e.target.result;
+			var lines = contents.split('\n');
+
+
+			for (var i = 0; i < lines.length-1; i++) {
+				weights.push(lines[i]);
+				}
+			
+			console.log("file loaded");
+			console.log(weights);
+			for (var i = 1; i <= numberOfWeights; i++){
+		var id = 'w'+ i;
+		document.getElementById(id).value = weights[i-1];
+	}
+		}
+		var text = r.readAsText(f);
+	}
+	
+}
 
 function doKNN(evt){
 	knnParam = document.getElementById('knn-param').value;
@@ -121,10 +146,13 @@ var topology = [];
 var MLPData = [];
 var passes;
 var numberOfWeights = 0;
+var weights = [];
 function createTopology(){
 	numberOfWeights = 0;
 	var html = '<h4>Initial Weights</h4> <br>';
 	html += '<div class="container">';
+	html += '<label for="weights-input">Input weights</label>';
+	html += '<input id="weights-input" type="file">';
 	topology = [];
 	var temp = document.getElementById("topology").value;
 	topology = temp.split(",");
@@ -182,7 +210,11 @@ function createTopology(){
   	document.getElementById('mlp-data').addEventListener('change', function(e){
   	var f = e.target.files[0];
 	readMLPData(f);
-  });
+  	});
+  	document.getElementById('weights-input').addEventListener('change', function(e){
+  		var f = e.target.files[0];
+  		readWeights(f);
+  	});
 }
 
 function doMLP(){
@@ -200,7 +232,7 @@ function doMLP(){
 	var delta = [];
 	var e4 = [];
 	var e5 = [];
-	var weights = [];
+
 	var totalerror = 0;
 	for (var i = 0; i < MLPData.length; i++){ //loop through each row of the data
 		for (var j = 0; j < passes; j++){ //times how many passes you want to have per row of data
